@@ -18,8 +18,24 @@ console.log(getComputerChoice());
 
 function game(userChoice){
     const compterChoice = getComputerChoice();
-    console.log("userChoice =>" + userChoice);
-    console.log("ComputerChoice =>" + compterChoice);
+    switch (userChoice + compterChoice) {
+        case "rs":
+        case "pr":
+        case "sp":
+            console.log("YOU HAVE WON");
+            break;
+        case "rp":
+        case "ps":
+        case "sr":
+            console.log("YOU HAVE LOST.");
+            break;
+        case "rr":
+        case "pp":
+        case "ss":
+            console.log("ITS A DRAW.");
+            break;
+                
+    }
 }
 
 function main(){
