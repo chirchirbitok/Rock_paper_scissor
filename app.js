@@ -3,7 +3,7 @@ var compterScore  = 0;
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
-const result_div = document.querySelector(".result > p");
+const result_p = document.querySelector(".result > p");
 
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
@@ -16,16 +16,27 @@ function getComputerChoice(){
 }
 console.log(getComputerChoice());
 
+function converToWord(letter){
+    if(letter === 'r') return 'Rock';
+    if(letter === 'p') return 'Paper';
+    return 'Scissors';
+}
+
 function win(userChoic, computerChoic){
     userScore++;
     userScore_span.innerHTML = userScore;
-    result_div.innerHTML = userChoic + " beats " + computerChoic + "You Win &#128293;";
+    const smallUserWord = "user".fontsize(3).sub();
+    const smallCompWord = "comp".fontsize(3).sub();
+    result_p.innerHTML = `${converToWord(userChoic)} ${smallUserWord}   beats  ${converToWord(computerChoic)}  ${smallCompWord}   You Win &#128293`;
 }
-function lose(){
+function lose(userChoic, computerChoic){
     compterScore++;
     computerScore_span.innerHTML = compterScore;
+    const smallUserWord = "user".fontsize(3).sub();
+    const smallCompWord = "comp".fontsize(3).sub();
+    result_p.innerHTML = `${converToWord(computerChoic)} ${smallUserWord} beats  ${converToWord(userChoic)} ${smallCompWord}  You Lose &#128555 `;
 }
-function draw(){
+function draw(userChoic, computerChoic){
      
 }
 
